@@ -32,13 +32,14 @@ class SkipIterator:
         return temp
     
     def skip(self, num):
+        if self.next_el == num:
+            self.advance()
+            return 
+        
         if num in self.skipmap:
             self.skipmap[num] += 1
         else:
             self.skipmap[num] = 1
-        
-        if self.next_el == num:
-            self.advance()
 
 
             
